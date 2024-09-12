@@ -7,8 +7,8 @@ Holiday App is a web-based Django application that allows users to browse differ
 - **Home Page:** Lists the available holiday types in the app.
 - **Holiday List Page:** Lists holiday images, names, destinations, and average prices. If the user wishes, they can go to the holiday's detail page or add the holiday to their favorites.
 - **Holiday Detail Page:** Lists the images, names, descriptions, destinations, average prices and types of holidays.
-- **Travek Agencies Page:** Lists all travel agencies in the app and their website links.
-- **Favorites:** Users can add and remove holiday to their favorites and view their favorite holidays.
+- **Travel Agencies Page:** Lists all travel agencies in the app and their website links.
+- **Favorites:** Users can add and remove holidays from their favorites and view their favorite holidays.
 
 ## Requirements
 
@@ -24,19 +24,39 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/ipekgungor/Holiday-Application-with-Django-and-PostgreSQL-.git
    cd Holiday-Application-with-Django-and-PostgreSQL-
-   
+
+2. Create a virtual environment and activate it:
+   ```bash
    python -m venv venv
    source venv/bin/activate  # For Linux/Mac
    venv\Scripts\activate  # For Windows
 
+3. Set up your PostgreSQL database:
+   ```bash
    CREATE USER <postgres_user> WITH PASSWORD '<password>';
    CREATE DATABASE <database_name>;
    GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <postgres_user>;
-   
-   python manage.py makemigrations
 
+4. Update the settings.py file with your PostgreSQL credentials:
+   ```bash
+   DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '<database_name>',
+        'USER': '<postgres_user>',
+        'PASSWORD': '<password>',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+5. Apply the migrations:
+   ```bash
+   python manage.py makemigrations
    python manage.py migrate
-   
+
+6. Run the development server:
+   ```bash
    python manage.py runserver
 
 
@@ -47,4 +67,4 @@ To run this project locally, follow these steps:
 
 ## Notes
 - **Set up the PostgreSQL database and update the settings.py file with your database configuration.**
-- **You can find sql commands in holidays/data/insert_data.sql** 
+- **You can find SQL commands in holidays/data/insert_data.sql** 
