@@ -48,7 +48,7 @@ To run this project locally, follow these steps:
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
+   }
 
 5. Apply the migrations:
    ```bash
