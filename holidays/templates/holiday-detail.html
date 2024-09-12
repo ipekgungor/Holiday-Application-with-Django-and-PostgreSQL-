@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ holiday.holiday_name }}{% endblock %}
+
+{% block content %}
+<div class="holiday-detail list-div">
+    <h1>{{ holiday.holiday_name }}</h1>
+    <div class="holiday-info">
+        <div class="holiday-image">
+            <img src="{{ holiday.img_url }}" alt="{{ holiday.holiday_name }}">
+        </div>
+        <div class="holiday-description">
+            <p><strong>Description:</strong> {{ holiday.holiday_description }}</p>
+            <p><strong>Destination:</strong> {{ holiday.destination }}</p>
+            <p><strong>Average Price:</strong> {{ holiday.price }}</p>
+            <p><strong>Type:</strong> {{ holiday.holiday_type.type_name }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Holiday List{% endblock %}
+
+{% block content %}
+<div class="list-div">
+    <h1>Holiday List</h1>
+    <p>Please note that the holidays listed on our platform are valid for a maximum of 2 weeks. This policy ensures that you receive the most up-to-date and relevant information about our holiday offers. We encourage you to book your desired holiday within this time frame to take advantage of the latest deals and availability.</p>
+    {% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Destination</th>
+                <th>Average Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for holiday in holidays %}
+            <tr>
+                <td>
+                    <img src="{{ holiday.img_url }}" alt="{{ holiday.holiday_name }}" class="img-fluid" style="width: 150px; height: auto;">
+                </td>
+                <td>{{ holiday.holiday_name }}</td>
+                <td>{{ holiday.destination }}</td>
+                <td>{{ holiday.price }}</td>
+                <td>
+                    <form action="{% url 'holiday-detail' holiday.id %}" style="display:inline;">
+                        <button class="btn btn-primary">View Details</button>
+                    </form>
+                    <form action="{% url 'add-to-favorites' holiday.id %}" style="display:inline;">
+                        <button class="btn btn-success">Add to Favorites</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

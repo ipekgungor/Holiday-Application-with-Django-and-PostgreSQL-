@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Travel Agencies{% endblock %}
+
+{% block content %}
+<div class="list-div">
+    <h1>Travel Agencies</h1>
+    <p>You can access all the travel agencies we have agreements with here.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for agency in travel_agencies %}
+            <tr>
+                <td>{{ agency.agency_name }}</td>
+                <td>
+                    <form action="{{ agency.agency_url }}" style="display:inline;">
+                        <button class="btn btn-primary">Visit Website</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

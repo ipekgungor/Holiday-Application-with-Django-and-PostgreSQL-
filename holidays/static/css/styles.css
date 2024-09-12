@@ -1,0 +1,46 @@
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.list-div{
+    text-align: center;
+    color: dimgray;
+}
+
+.holiday-detail {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.holiday-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.holiday-image {
+    flex: 1;
+}
+
+.holiday-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.holiday-description {
+    flex: 2;
+    text-align: justify;
+}
+
+.holiday-description p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
